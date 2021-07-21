@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="calc.css">
+<!--  <script src="../vue@next.js" charset="utf-8"></script> -->
+  </head>
+  <body>
+    <div id="calc">
+      <div class="result">
+        <textarea type="text" v-model="input"></textarea>
+      </div>
+        <div class="buttons">
+          <button value="1" @click="plus($event)" class="numButton one">1</button>
+          <button value="2" @click="plus($event)" class="numButton two">2</button>
+          <button value="3" @click="plus($event)" class="numButton three">3</button>
+          <button id="delit" @click="delit()">/</button>
+          <button value="4" @click="plus($event)" class="numButton four">4</button>
+          <button value="5" @click="plus($event)" class="numButton five">5</button>
+          <button value="6" @click="plus($event)" class="numButton six">6</button>
+          <button id="minus" @click="minus()">-</button>
+          <button value="7" @click="plus($event)" class="numButton seven">7</button>
+          <button value="8" @click="plus($event)" class="numButton eigth">8</button>
+          <button value="9" @click="plus($event)" class="numButton nine">9</button>
+          <button @click="pribav()">+</button>
+          <button value="0" @click="plus($event)" class="numButton zero">0</button>
+          <button @click="del()" class="del">C</button>
+          <button id="del" @click="tochka()" class="tochka">·</button>
+          <button @click="umnozh()"class="umnozh">x</button>
+          <button @click="ravno()" class="ravno">=</button>
+          <button class="pusto"></button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="calc.js" charset="utf-8"></script>
+  </body>
+</html>

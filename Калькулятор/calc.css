@@ -1,0 +1,71 @@
+* {
+  font-family: Arial;
+  font-size: 105%;
+}
+#calc {
+  position: relative;
+  width: 300px;
+  height: 430px;
+  border: 3px solid brown;
+  margin: 100px auto 0;
+  border-radius: 25px;
+  background-color: hsla(220, 0%, 0%, 0.08);
+}
+textarea {
+  box-sizing: border-box;
+  width: 300px;
+  height: 76px;
+  resize: none;
+  padding: 15px;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid white;
+  font-size: 145%;
+}
+button {
+  float: left;
+  padding: 15px 20px;
+  margin: 7.5px;
+  cursor: pointer;
+  border: 0.5px solid white;
+  border-radius: 1000px;
+  /*  background-image: linear-gradient(#4adede, #1aa7ec); */
+  background-color: hsla(360, 100%, 100%, 0.6);
+  transition: all 0.3s;
+}
+.buttons button:nth-child(1n+1) {
+  margin-left: 13px;
+}
+button:hover {
+  background-color: hsla(360, 100%, 100%, 0.5);
+}
+button:active {
+  background-color: hsla(360, 100%, 100%, 0.55);
+}
+
+#minus {
+  padding: 15px 24px;
+}
+#delit {
+  padding: 15px 24px;
+}
+button.del {
+  padding: 15px 18px;
+}
+.pusto {
+  position: absolute;
+  top: 355px;
+  left: 0px;
+  padding: 26px 60px;
+}
+.ravno {
+  position: absolute;
+  top: 355px;
+  left: 140px;
+  padding: 15px 60px;
+}
+.umnozh {
+  padding: 16px 22px;
+}
+.tochka {
+  padding: 16px 22px;
+}
