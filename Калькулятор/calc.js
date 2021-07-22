@@ -37,7 +37,14 @@ const calc = Vue.createApp({
     },
     ravno() {
       let timeStr = eval(this.input);
-      this.input = timeStr.toFixed(5).toString();
+      function isInteger(num) {
+        return (num ^ 0) === num;
+      }
+      if (!isInteger(timeStr)) {
+        this.input = timeStr.toFixed(5).toString();
+      } else {
+        this.input = timeStr.toString();
+      }
       this.inputs.unshift(this.input);
       if (this.inputs.length >= 5) {
         this.inputs.length = 5;
