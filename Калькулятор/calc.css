@@ -2,6 +2,9 @@
   font-family: Arial;
   font-size: 105%;
 }
+body {
+  background-color: hsla(360, 1%, 1%, 0.4);
+}
 #calc {
   position: relative;
   width: 300px;
@@ -9,7 +12,7 @@
   border: 3px solid brown;
   margin: 100px auto 0;
   border-radius: 25px;
-  background-color: hsla(220, 0%, 0%, 0.08);
+  background-color: hsla(220, 100%, 100%, 0.8);
 }
 textarea {
   box-sizing: border-box;
@@ -20,25 +23,25 @@ textarea {
   border-radius: 20px 20px 0 0;
   border: 1px solid white;
   font-size: 145%;
+  outline: none;
 }
-button {
+.numButton {
   float: left;
   padding: 15px 20px;
   margin: 7.5px;
   cursor: pointer;
   border: 0.5px solid white;
   border-radius: 1000px;
-  /*  background-image: linear-gradient(#4adede, #1aa7ec); */
   background-color: hsla(360, 100%, 100%, 0.6);
   transition: all 0.3s;
 }
 .buttons button:nth-child(1n+1) {
   margin-left: 13px;
 }
-button:hover {
+.numButton:hover {
   background-color: hsla(360, 100%, 100%, 0.5);
 }
-button:active {
+.numButton:active {
   background-color: hsla(360, 100%, 100%, 0.55);
 }
 
@@ -48,14 +51,22 @@ button:active {
 #delit {
   padding: 15px 24px;
 }
-button.del {
+.numButton.del {
   padding: 15px 18px;
 }
 .pusto {
   position: absolute;
   top: 355px;
   left: 0px;
-  padding: 26px 60px;
+  padding: 12px 50px;
+}
+.pustota {
+  width: auto;
+  position: absolute;
+  top: 355px;
+  left: 8px;
+  padding: 12px 121px;
+  margin: 15px 10px 10px 8px;
 }
 .ravno {
   position: absolute;
@@ -68,4 +79,48 @@ button.del {
 }
 .tochka {
   padding: 16px 22px;
+}
+img {
+  width: 25px;
+}
+
+.bufer {
+  width: auto;
+  height: 260px;
+  margin: 10px;
+  padding: 10px 10px 0;
+  background-color: white;
+  border-radius: 30px;
+  overflow: auto;
+  transition: all 0.3s;
+}
+li {
+  position: relative;
+  color: black;
+  margin: 20px 0 0 10px;
+}
+.deleteButton, .pasteButton {
+  position: absolute;
+  left: 80%;
+  top:-7px;
+  padding: 2px 10px 4px;
+  margin: 7.5px;
+  cursor: pointer;
+  border: 0.5px solid white;
+  border-radius: 1000px;
+  background-color: hsla(360, 0%, 0%, 0.3);
+  transition: all 0.3s;
+}
+.pasteButton {
+  left: 60%;
+}
+.deleteButton:hover, .pasteButton:hover {
+  background-color: hsla(360, 0%, 0%, 0.2);
+}
+.deleteButton:active, .pasteButton:active {
+  background-color: hsla(360, 0%, 0%, 0.25);
+}
+
+[v-cloak] {
+  display: none;
 }

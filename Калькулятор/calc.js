@@ -1,7 +1,9 @@
 const calc = Vue.createApp({
   data() {
     return {
-      input: 0
+      input: 0,
+      inputs: [],
+      seen: true
     }
   },
   methods: {
@@ -35,7 +37,30 @@ const calc = Vue.createApp({
     },
     ravno() {
       let timeStr = eval(this.input);
-      this.input = timeStr.toString();
+      this.input = timeStr.toFixed(5).toString();
+      this.inputs.unshift(this.input);
+      if (this.inputs.length >= 5) {
+        this.inputs.length = 5;
+      }
+      localStorage.setItem("calc", JSON.stringify(this.inputs))
+    },
+    reverse() {
+      this.seen = !this.seen;
+    },
+    reverseIf() {
+      this.seen = true ? true : false;
+    },
+    clean(index) {
+      this.inputs.splice(index, 1);
+      localStorage.setItem("calc", JSON.stringify(this.inputs))
+    },
+    paste(index) {
+      this.input = `${this.inputs[index]}`
+    }
+  },
+  mounted() {
+    if (localStorage.getItem("calc")) {
+      this.inputs = JSON.parse(localStorage["calc"]);
     }
   }
 }).mount("#calc")

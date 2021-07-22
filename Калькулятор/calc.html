@@ -7,29 +7,37 @@
 <!--  <script src="../vue@next.js" charset="utf-8"></script> -->
   </head>
   <body>
-    <div id="calc">
-      <div class="result">
+    <div id="calc" v-cloak>
+      <div class="result" @click="reverseIf()">
         <textarea type="text" v-model="input"></textarea>
       </div>
-        <div class="buttons">
-          <button value="1" @click="plus($event)" class="numButton one">1</button>
-          <button value="2" @click="plus($event)" class="numButton two">2</button>
-          <button value="3" @click="plus($event)" class="numButton three">3</button>
-          <button id="delit" @click="delit()">/</button>
-          <button value="4" @click="plus($event)" class="numButton four">4</button>
-          <button value="5" @click="plus($event)" class="numButton five">5</button>
-          <button value="6" @click="plus($event)" class="numButton six">6</button>
-          <button id="minus" @click="minus()">-</button>
-          <button value="7" @click="plus($event)" class="numButton seven">7</button>
-          <button value="8" @click="plus($event)" class="numButton eigth">8</button>
-          <button value="9" @click="plus($event)" class="numButton nine">9</button>
-          <button @click="pribav()">+</button>
-          <button value="0" @click="plus($event)" class="numButton zero">0</button>
-          <button @click="del()" class="del">C</button>
-          <button id="del" @click="tochka()" class="tochka">·</button>
-          <button @click="umnozh()"class="umnozh">x</button>
-          <button @click="ravno()" class="ravno">=</button>
-          <button class="pusto"></button>
+        <div class="buttons" v-if="seen">
+          <button value="1" @click="plus($event)" class="numButton">1</button>
+          <button value="2" @click="plus($event)" class="numButton">2</button>
+          <button value="3" @click="plus($event)" class="numButton">3</button>
+          <button id="delit" @click="delit()" class="numButton">/</button>
+          <button value="4" @click="plus($event)" class="numButton">4</button>
+          <button value="5" @click="plus($event)" class="numButton">5</button>
+          <button value="6" @click="plus($event)" class="numButton">6</button>
+          <button id="minus" @click="minus()" class="numButton">-</button>
+          <button value="7" @click="plus($event)" class="numButton">7</button>
+          <button value="8" @click="plus($event)" class="numButton">8</button>
+          <button value="9" @click="plus($event)" class="numButton">9</button>
+          <button @click="pribav()" class="numButton">+</button>
+          <button value="0" @click="plus($event)" class="numButton">0</button>
+          <button @click="del()" class="del numButton">C</button>
+          <button id="del" @click="tochka()" class="tochka numButton">·</button>
+          <button @click="umnozh()"class="umnozh numButton">x</button>
+          <button @click="ravno()" class="ravno numButton">=</button>
+          <button class="pusto numButton" @click="reverse()"><img src="787265.png" alt="сохр"></button>
+        </div>
+        <div v-else>
+          <div class="bufer">
+            <ol>
+            <li v-for="(last, index) in inputs"> {{ last }} <button @click="paste(index)" class="pasteButton">+</button><button @click="clean(index)" class="deleteButton">-</button></li>
+            </ol>
+          </div>
+          <button class="pustota numButton" @click="reverse()"><img src="787265.png" alt="сохр"></button>
         </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
