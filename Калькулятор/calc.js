@@ -41,7 +41,7 @@ const calc = Vue.createApp({
         return (num ^ 0) === num;
       }
       if (!isInteger(timeStr)) {
-        this.input = timeStr.toFixed(3).toString();
+        this.input = timeStr.toFixed(2).toString();
       } else {
         this.input = timeStr.toString();
       }
@@ -69,6 +69,14 @@ const calc = Vue.createApp({
       } else {
         this.input = `${this.inputs[index]}`
       }
+    }
+  },
+  computed: {
+    width() {
+      if (this.input.length >= 11) {
+        return true
+      }
+      return false
     }
   },
   mounted() {

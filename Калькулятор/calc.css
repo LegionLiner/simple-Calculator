@@ -24,6 +24,7 @@ textarea {
   border: 1px solid white;
   font-size: 145%;
   outline: none;
+  overflow: hidden;
 }
 .numButton {
   float: left;
@@ -123,6 +124,20 @@ li {
 }
 .deleteButton:active, .pasteButton:active {
   background-color: hsla(360, 0%, 0%, 0.25);
+}
+.smallText {
+  font-size: 70%;
+}
+.smallerText {
+  font-size: 52%;
+}
+.smallInput {
+  font-size: 90%;
+  transition: all 0.2s;
+}
+.smallerInput {
+  font-size: 70%;
+  transition: all 0.2s;
 }
 
 [v-cloak] {

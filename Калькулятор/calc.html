@@ -9,7 +9,7 @@
   <body>
     <div id="calc" v-cloak>
       <div class="result" @click="reverseIf()">
-        <textarea type="text" v-model="input"></textarea>
+        <textarea type="text" v-model="input" :class="{smallInput: input.length >= 20, smallerInput: input.length >= 30}"></textarea>
       </div>
         <div class="buttons" v-if="seen">
           <button value="1" @click="plus($event)" class="numButton">1</button>
@@ -34,7 +34,7 @@
         <div v-else>
           <div class="bufer">
             <ol>
-            <li v-for="(last, index) in inputs"> {{ last }} <button @click="paste(index)" class="pasteButton">+</button><button @click="clean(index)" class="deleteButton">-</button></li>
+            <li v-for="(last, index) in inputs"><span :class="{smallText: last.length >= 10, smallerText: last.length >= 17}"> {{ last }} </span><button @click="paste(index)" class="pasteButton">+</button><button @click="clean(index)" class="deleteButton">-</button></li>
             </ol>
           </div>
           <button class="pustota numButton" @click="reverse()"><img src="787265.png" alt="сохр"></button>
