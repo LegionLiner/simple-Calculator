@@ -71,14 +71,6 @@ const calc = Vue.createApp({
       }
     }
   },
-  computed: {
-    width() {
-      if (this.input.length >= 11) {
-        return true
-      }
-      return false
-    }
-  },
   mounted() {
     if (localStorage.getItem("calc")) {
       this.inputs = JSON.parse(localStorage["calc"]);
