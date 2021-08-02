@@ -62,7 +62,9 @@ const calc = Vue.createApp({
       localStorage.setItem("calc", JSON.stringify(this.inputs))
     },
     paste(index) {
-      if (this.input.slice(this.input.length - 3) == " - " || this.input.slice(this.input.length - 3) == " * " || this.input.slice(this.input.length - 3) == " / " || this.input.slice(this.input.length - 3) == " + ") {
+      if (this.input == 0) {
+        this.input = `${this.inputs[index]}`
+      } else if (this.input.slice(this.input.length - 3) == " - " || this.input.slice(this.input.length - 3) == " * " || this.input.slice(this.input.length - 3) == " / " || this.input.slice(this.input.length - 3) == " + ") {
         this.input = `${this.input}${this.inputs[index]}`
       } else {
         this.input = `${this.inputs[index]}`
