@@ -8,7 +8,7 @@ const calc = Vue.createApp({
   },
   methods: {
     plus(but) {
-      this.input ? this.input = this.input = `${this.input}${but.target.value}` : this.input = `${but.target.value}`
+      this.input ? this.input = `${this.input}${but.target.value}` : this.input = `${but.target.value}`
     },
     del() {
       if (this.input.slice(this.input.length - 3) == " - " || this.input.slice(this.input.length - 3) == " * " || this.input.slice(this.input.length - 3) == " / " || this.input.slice(this.input.length - 3) == " + ") {
@@ -41,7 +41,7 @@ const calc = Vue.createApp({
         return (num ^ 0) === num;
       }
       if (!isInteger(timeStr)) {
-        this.input = timeStr.toFixed(5).toString();
+        this.input = timeStr.toFixed(3).toString();
       } else {
         this.input = timeStr.toString();
       }
@@ -49,7 +49,7 @@ const calc = Vue.createApp({
       if (this.inputs.length >= 5) {
         this.inputs.length = 5;
       }
-      localStorage.setItem("calc", JSON.stringify(this.inputs))
+      localStorage.setItem("calc", JSON.stringify(this.inputs));
     },
     reverse() {
       this.seen = !this.seen;
@@ -62,7 +62,11 @@ const calc = Vue.createApp({
       localStorage.setItem("calc", JSON.stringify(this.inputs))
     },
     paste(index) {
-      this.input = `${this.inputs[index]}`
+      if (this.input.slice(this.input.length - 3) == " - " || this.input.slice(this.input.length - 3) == " * " || this.input.slice(this.input.length - 3) == " / " || this.input.slice(this.input.length - 3) == " + ") {
+        this.input = `${this.input}${this.inputs[index]}`
+      } else {
+        this.input = `${this.inputs[index]}`
+      }
     }
   },
   mounted() {
